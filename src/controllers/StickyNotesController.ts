@@ -16,11 +16,11 @@ export default {
         const { id } = req.params;
         const stickyNotesRepository = getRepository(StickyNote);
 
-        if (!await stickyNotesRepository.findOne(id)) {
+        if (!await stickyNotesRepository.findOne({ where: { id: parseInt(id, 10) } })) {
             return res.status(400).json({ message: "Sticky Note doesn't exist" });
         }
 
-        const stickyNote = await stickyNotesRepository.findOneOrFail(id);
+        const stickyNote = await stickyNotesRepository.findOneOrFail({ where: { id: parseInt(id, 10) } });
 
         return res.json(stickyNoteView.render(stickyNote));
     },
@@ -48,7 +48,7 @@ export default {
         const { id, title, description } = req.body;
         const stickyNotesRepository = getRepository(StickyNote);
 
-        const stickyNote = await stickyNotesRepository.findOne(id);
+        const stickyNote = await stickyNotesRepository.findOne({ where: { id: parseInt(id, 10) } });
 
         if (!stickyNote) {
             return res.status(400).json({ message: "Sticky Note doesn't exist" });
@@ -75,7 +75,7 @@ export default {
         const { id } = req.params;
         const stickyNotesRepository = getRepository(StickyNote);
 
-        if (!await stickyNotesRepository.findOne(id)) {
+        if (!await stickyNotesRepository.findOne({ where: { id: parseInt(id, 10) } })) {
             return res.status(400).json({ message: "Sticky Note doesn't exist" });
         }
 
