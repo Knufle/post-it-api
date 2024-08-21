@@ -65,7 +65,9 @@ export default {
             return res.status(400).json({ message: "Sticky Note doesn't exist" });
         }
 
-        const data = { id, title, description };
+        const parsedId = Number(id);
+
+        const data = { id: parsedId, title, description };
 
         const schema = z.object({
             id: z.number().int().positive(),
