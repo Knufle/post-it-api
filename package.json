@@ -6,7 +6,7 @@
     "build": "tsc",
     "start": "NODE_ENV=production node --trace-warnings ./src/server.js",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js -d ./ormconfig.ts"
   },
   "keywords": [],
   "author": "",
