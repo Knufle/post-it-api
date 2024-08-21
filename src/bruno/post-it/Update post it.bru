@@ -1,0 +1,17 @@
+meta {
+  name: Update post it
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3333/sticky-notes
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  id: 21
+  title: muuuultiverse
+  description: this note
+}

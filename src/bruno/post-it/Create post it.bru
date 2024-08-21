@@ -1,0 +1,16 @@
+meta {
+  name: Create post it
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3333/sticky-notes
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  title: my bruno title
+  description: my bruno description
+}
