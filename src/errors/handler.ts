@@ -1,17 +1,18 @@
 import { ErrorRequestHandler } from 'express';
-import { ValidationError } from 'yup';
+import { ZodError } from 'zod';
 
 interface ValidationErrors {
     [key: string]: string[];
 }
 
 const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
-    if (error instanceof ValidationError) {
-        let errors: ValidationErrors = {};
+    if (error instanceof ZodError) {
+        const errors: ValidationErrors = {};
 
-        error.inner.forEach(err => {
-            if (err.path) {
-                errors[err.path] = err.errors;
+        error.errors.forEach(err => {
+            const path = err.path.join('.');
+            if (path) {
+                errors[path] = [err.message];
             }
         });
 
