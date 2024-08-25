@@ -1,0 +1,17 @@
+meta {
+  name: Delete post it
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3333/trpc/deleteStickyNote
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 25
+  }
+}

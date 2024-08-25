@@ -1,0 +1,19 @@
+meta {
+  name: Update post it
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3333/trpc/updateStickyNote
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 25,
+    "title": "updated title",
+    "description": "updated description"
+  }
+}

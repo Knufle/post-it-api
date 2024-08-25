@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "post-it-trpc",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
